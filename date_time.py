@@ -83,6 +83,74 @@ dt_str = 'July 26, 2020'
 dt = datetime.datetime.strptime(dt_str, '%B %d, %Y')
 print(dt)
 
+print("="*20)
+
+import calendar
+
+balance = 5000
+annual_interest_rate = 0.13
+monthly_payment = 500
+monthly_interest_rate = annual_interest_rate / 12
+
+today = datetime.date.today()
+
+(first_day_in_month, days_in_current_month) = calendar.monthrange(today.year, today.month)
+days_till_end_month = days_in_current_month - today.day
+print(days_till_end_month)
+
+start_date = today + datetime.timedelta(days=days_till_end_month + 1)
+print(start_date)
+end_date = start_date
+
+while balance > 0:
+    interest_charge = monthly_interest_rate * balance
+    balance += interest_charge
+    balance -= monthly_payment
+
+    balance = 0 if balance < 0 else round(balance, 2)
+
+    print(end_date, balance)
+
+    days_in_current_month = calendar.monthrange(end_date.year, end_date.month)[1]
+    end_date += datetime.timedelta(days=days_in_current_month)
+
+print("="*20)
+
+current_weight = 220
+goal_weight = 180
+average_lbs_week = 1.5
+
+start_date = datetime.date.today()
+end_date = start_date
+
+while current_weight > goal_weight:
+    end_date += datetime.timedelta(days=7)
+    current_weight -= average_lbs_week
+
+print(end_date)
+print(f'Reach goal in {(end_date - start_date).days // 7}')
+
+print("="*20)
+
+import math
+
+goal_subs = 100000
+current_subs = 85000
+subs_to_go = goal_subs - current_subs 
+
+avg_subs_day = 200
+days_to_go = math.ceil(subs_to_go / avg_subs_day)
+
+today = datetime.date.today()
+print(days_to_go)
+print(today + datetime.timedelta(days=days_to_go))
+
+
+
+
+
+
+
 
 
 

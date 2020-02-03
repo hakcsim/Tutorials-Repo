@@ -47,3 +47,9 @@ print(os.path.exists(file_path))
 print(os.path.isfile(file_path))
 print(os.path.isdir(file_path))
 
+import glob
+
+# get all Python script files
+for file in glob.glob('*.py'):
+    print(file)
+

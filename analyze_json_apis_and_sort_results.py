@@ -20,8 +20,7 @@ def download():
 
         package_url = f'https://formulae.brew.sh/api/formula/{package["name"]}.json'
 
-        r = requests.get(package_url)
-    
+        r = requests.get(package_url)    
         package_json = r.json()
 
         # print(json.dumps(package_json, indent=2))
@@ -77,5 +76,5 @@ def sort():
     print(f"365 days most popular = {sorted_365d[0]['name']}, {sorted_365d[0]['analytics']['365d']}")
 
 if __name__ == '__main__':
-    # download()
+    download()
     sort()

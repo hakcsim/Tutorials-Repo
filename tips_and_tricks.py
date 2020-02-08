@@ -49,7 +49,7 @@ class Person:
 
 person = Person()
 
-first_key = 'first'haklsim
+first_key = 'first'
 first_val = 'Corey'
 
 setattr(person, first_key, first_val)
